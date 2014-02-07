@@ -22,6 +22,7 @@ AWDBlock::prepare_and_add_dependencies(AWDBlockList *export_list)
     // Does nothing by default. Can be optionally
     // overriden by sub-classes to take any actions
     // that need to happen before length is calculated
+    return;
 }
 
 void

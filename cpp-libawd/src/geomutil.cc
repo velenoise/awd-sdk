@@ -103,6 +103,7 @@ AWDGeomUtil::AWDGeomUtil()
     this->joints_per_vertex = 0;
     this->include_uv = true;
     this->include_normals = true;
+    this->num_idx_lists = 0;
 }
 
 AWDGeomUtil::~AWDGeomUtil()
