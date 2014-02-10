@@ -15,12 +15,15 @@ VertexDataList::VertexDataList()
 
 VertexDataList::~VertexDataList()
 {
+    /*if (this->num_items == 0) return;
+    
 	vdata_list_item *cur_item = this->first;
+    
     while (cur_item) {
         ninfluence *cur_n;
 		vdata *cur_v = cur_item->vd;
         vdata_list_item *next_item = cur_item->next;
-
+        
         // Free skinning data if any
         if (cur_v->num_bindings) {
             free(cur_v->weights);
@@ -35,11 +38,12 @@ VertexDataList::~VertexDataList()
             cur_n = next_n;
         }
 
-        free(cur_v);
+        //if (cur_v) free(cur_v);
         cur_item = next_item;
     }
-
+*/
 	this->clear();
+     
 }
 
 void
@@ -134,7 +138,7 @@ AWDGeomUtil::append_vert_data(unsigned int idx, double x, double y, double z,
 {
     vdata *vd;
 
-    vd = (vdata *)malloc(sizeof(vdata));
+    vd = (vdata *)malloc(sizeof(vdata)); 
     vd->orig_idx = idx;
     vd->out_idx = -1;
     vd->x = x;
@@ -316,14 +320,16 @@ AWDGeomUtil::build_geom(AWDTriGeom *md)
     AWD_str_ptr u_str;
     AWD_str_ptr w_str;
     AWD_str_ptr j_str;
+    
+    
 
 	int num_exp = expanded->get_num_items();
-
     sub = new AWDSubGeom();
     v_str.f64 = (awd_float64*) malloc(sizeof(awd_float64) * 3 * num_exp);
     i_str.ui32 = (awd_uint32*) malloc(sizeof(awd_uint32) * num_exp);
 
-    if (this->include_normals) 
+
+    if (this->include_normals)
         n_str.f64 = (awd_float64*) malloc(sizeof(awd_float64) * 3 * num_exp);
 
     if (this->include_uv)
@@ -337,7 +343,7 @@ AWDGeomUtil::build_geom(AWDTriGeom *md)
         memset(w_str.v, 0, max_num_vals * sizeof(awd_float64));
         memset(j_str.v, 0, max_num_vals * sizeof(awd_uint32));
     }
-
+/**/
 	// Prebuild a lookup list of vertices by their original index, so that
 	// has_vert() can check only those vertices that used to be the same
 	// client vertex, instead of looping over them all.
@@ -451,7 +457,7 @@ AWDGeomUtil::build_geom(AWDTriGeom *md)
     }
 
     md->add_sub_mesh(sub);
-
+//*/
     return 1;
 }
 

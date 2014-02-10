@@ -15,6 +15,9 @@ AWDMetaData::AWDMetaData() :
     this->encoder_version = (char *)malloc(255);
     snprintf(this->encoder_version, 255, "%d.%d.%d%c",
         AWD::VERSION_MAJOR, AWD::VERSION_MINOR, AWD::VERSION_BUILD, AWD::VERSION_RELEASE);
+    
+    this->generator_name = new char();
+    this->generator_version = new char();
 }
 
 
